@@ -1,0 +1,28 @@
+.feature-card {
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0px 2px 20px rgba(155, 155, 155, 0.25);
+  }
+  &__header {
+    border: 1px solid #eee7fd;
+    border-radius: 8px 8px 0 0;
+    border-bottom: none;
+    background: #ffffff;
+    .title {
+      padding: 8px 0 8px 8px;
+      border-left: 1px solid;
+      border-left-width: 32px;
+      border-top-left-radius: 8px;
+    }
+  }
+  &__body {
+    background: #ffffff;
+    border: 1px solid #eee7fd;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    .ant-col {
+      padding-top: 16px;
+      text-align: center;
+    }
+  }
+}
