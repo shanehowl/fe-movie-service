@@ -17,4 +17,27 @@
       padding: 16px;
     }
   }
+  &__left {
+    .movie-details {
+      padding: 26px;
+      border-radius: 12px;
+      background: @orc-white;
+      filter: drop-shadow(9px 9px 16px rgba(133, 137, 172, 0.25));
+    }
+  }
+  &__right {
+    .ant-image {
+      display: flex;
+      justify-content: center;
+    }
+    .thumbnail {
+      max-height: 80vh;
+      max-width: 100%;
+      width: unset;
+      object-fit: contain;
+      &:hover {
+        box-shadow: @orc-box-shadow;
+      }
+    }
+  }
 }
