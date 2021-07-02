@@ -23,20 +23,78 @@
       border-radius: 12px;
       background: @orc-white;
       filter: drop-shadow(9px 9px 16px rgba(133, 137, 172, 0.25));
+      &__title {
+        font-size: 64px;
+        margin-bottom: 84px;
+      }
+      &__cta {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
     }
   }
   &__right {
-    .ant-image {
+    user-select: none;
+    .image-carousel {
       display: flex;
       justify-content: center;
-    }
-    .thumbnail {
-      max-height: 80vh;
-      max-width: 100%;
-      width: unset;
-      object-fit: contain;
-      &:hover {
-        box-shadow: @orc-box-shadow;
+      .posterArt {
+        position: relative;
+        &:hover {
+          .posterArt__overlay {
+            opacity: 1;
+          }
+        }
+        &__overlay {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 100%;
+          width: 100%;
+          opacity: 0;
+          transition: 0.5s ease;
+          background-color: rgba(#000000, 0.4);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .controller {
+            cursor: pointer;
+            height: 64px;
+            width: 64px;
+            border-radius: 18px;
+            background: @orc-blue--primary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:hover {
+              background-color: @orc-blue--light-primary;
+            }
+            &__left {
+              margin-left: -32px;
+            }
+            &__right {
+              margin-right: -32px;
+            }
+            .arrow-icon {
+              font-size: 24px;
+              color: @orc-white;
+            }
+          }
+          &:hover {
+          }
+        }
+        &__thumbnail {
+          max-height: 80vh;
+          max-width: 100%;
+          width: unset;
+          object-fit: contain;
+          // &:hover {
+          //   box-shadow: @orc-box-shadow;
+          // }
+        }
       }
     }
   }

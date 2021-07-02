@@ -3,14 +3,14 @@ import { FC, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
 
-import Crud from '../crud'
 import Landing from '../landing'
-import Features from '../features'
+import Listing from '../listing'
 import NavigationHeader from '../../components/navigation-header'
 
-import { retrieveMovieList } from '../../redux/actions/action_movie_list'
+import { retrieveProgramList } from '../../redux/actions/action_program_list'
 
 import './home.less'
+import { ROUTES_NAMING } from '../../constants/routes'
 
 const Home: FC = () => {
   //* Constants
@@ -21,18 +21,18 @@ const Home: FC = () => {
 
   //* Effect
   useEffect(() => {
-    dispatch(retrieveMovieList())
+    dispatch(retrieveProgramList())
   }, [])
   return (
     <Layout>
       <Header className="layout__header">
-        <NavigationHeader title="R Base" />
+        <NavigationHeader title="ORC Program" />
       </Header>
       <Content className="layout__content">
         <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route path="/features" component={Features} />
-          <Route path="/crud" component={Crud} />
+          <Route exact path={ROUTES_NAMING.landing} component={Landing} />
+          <Route path={ROUTES_NAMING.movie} component={Listing} />
+          <Route path={ROUTES_NAMING.series} component={Listing} />
         </Switch>
       </Content>
     </Layout>

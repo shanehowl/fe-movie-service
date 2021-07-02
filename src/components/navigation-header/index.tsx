@@ -5,6 +5,7 @@ import { Row, Col, Typography, Menu, Button } from 'antd'
 import { NavigationHeaderProp } from './modal'
 
 import './navigation-header.less'
+import { PROGRAM_TYPE } from '../../constants/programType'
 /**
  *
  * NavigationHeader
@@ -42,8 +43,8 @@ const NavigationHeader: FC<NavigationHeaderProp> = ({
                 selectedKeys={[currentMenu]}
                 mode="horizontal"
               >
-                <Menu.Item key="features">Features</Menu.Item>
-                <Menu.Item key="crud">Basic CRUD</Menu.Item>
+                <Menu.Item key="movie">{_.capitalize(PROGRAM_TYPE.movie)}</Menu.Item>
+                <Menu.Item key="series">{_.capitalize(PROGRAM_TYPE.series)}</Menu.Item>
               </Menu>
             </Col>
           </Row>

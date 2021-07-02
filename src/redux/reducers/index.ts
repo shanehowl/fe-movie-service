@@ -1,16 +1,14 @@
 import { combineReducers } from 'redux'
-import { MovieListState } from '../../modals/movie_list'
+import { ProgramListState } from '../../modals/program_list'
 
-import crudPageReducer from './reducer_crud_page'
-import movieListReducer from './reducer_movie_list'
+import programListReducer from './reducer_program_list'
 
 export interface RootState {
-  movieListReducer: MovieListState
+  programListReducer: ProgramListState
 }
 
 const rootReducer = combineReducers({
-  crudPageReducer,
-  movieListReducer,
+  programListReducer,
 })
 
 export default rootReducer

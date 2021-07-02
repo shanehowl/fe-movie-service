@@ -1,9 +1,20 @@
 import _ from 'lodash'
-import { useSelector } from 'react-redux'
-import { useHistory } from 'react-router'
-import { FC, useCallback, useMemo } from 'react'
-import { Row, Col, Typography, Button, Space, Image } from 'antd'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { LeftOutlined, RightOutlined } from '@ant-design/icons'
+import { Row, Col, Typography, Button, Space } from 'antd'
+import { FC, useMemo, useState } from 'react'
 import { RootState } from '../../redux/reducers'
+import { setSelectedProgram } from '../../redux/actions/action_program_list'
+
+//* Constants
+import { ROUTES_NAMING } from '../../constants/routes'
+
+//* Modals
+import { Program } from '../../modals/program_list'
+
+//* Assets
+import { ReactComponent as EmptyImageSvg } from '../../assets/utilities/empty-image.svg'
 import './landing.less'
 /**
  *
@@ -12,87 +23,117 @@ import './landing.less'
  */
 const Landing: FC = () => {
   const history = useHistory()
-  const onRedirect = useCallback(
-    (route: string) => {
-      history.push(route)
-    },
-    [history]
-  )
   //* Constants
-  const { Title, Paragraph } = Typography
+  const { Title } = Typography
 
   //* Redux
-  const { movies, total } = useSelector((state: RootState) => state.movieListReducer)
+  const { programs, total } = useSelector((state: RootState) => state.programListReducer)
+  const dispatch = useDispatch()
+
+  //* State
+  const [movieIndex, setMovieIndex] = useState(0)
 
   //* Memo
-  const suggestedMovies = useMemo(() => {
-    if (movies && total) {
+  const suggestedPrograms = useMemo(() => {
+    if (programs && total) {
       //* Generate 3 random number as suggestedMovie
-      const sMovies: any[] = []
+      const sPrograms: any[] = []
       _.times(3, () => {
         const randomIndex = _.random(0, total - 1)
-        sMovies.push(movies[randomIndex])
+        sPrograms.push(programs[randomIndex])
       })
-      return sMovies
+      return sPrograms
     }
     return []
-  }, [movies, total])
+  }, [programs, total])
+  const highlightedProgram: Program = useMemo(
+    () => _.get(suggestedPrograms, `[${movieIndex}]`, {}),
+    [suggestedPrograms, movieIndex]
+  )
+
+  //* Methods
+  const onNext = (): void => {
+    //* If index at last suggested movie. Show back the first movie
+    const nextMovieIndex: number = movieIndex === _.size(suggestedPrograms) - 1 ? 0 : movieIndex + 1
+    setMovieIndex(nextMovieIndex)
+  }
+
+  const onPrev = (): void => {
+    //* If index at last suggested movie. Show back the first movie
+    const prevMovieIndex: number = movieIndex === 0 ? _.size(suggestedPrograms) - 1 : movieIndex - 1
+    setMovieIndex(prevMovieIndex)
+  }
+
+  const onRedirect = (): any => {
+    try {
+      if (!highlightedProgram.programType) throw new Error()
+      history.push({
+        pathname: _.get(ROUTES_NAMING, highlightedProgram.programType),
+      })
+    } catch (error) {
+      console.error('Failed to redirect. Missing program type')
+    }
+  }
+
+  const onViewMoreDetail = (): void => {
+    dispatch(setSelectedProgram(highlightedProgram))
+    onRedirect()
+  }
 
   return (
     <>
-      <Row align="middle" justify="space-between" gutter={[16, 16]} className="landing-page">
+      <Row align="middle" justify="center" gutter={[16, 16]} className="landing-page">
         <Col
           xs={{ order: 3, span: 24 }}
           sm={{ order: 3, span: 24 }}
-          md={{ order: 1, span: 11 }}
-          lg={{ order: 1, span: 10 }}
-          xl={{ order: 1, span: 10 }}
+          md={{ order: 1, span: 12 }}
+          lg={{ order: 1, span: 12 }}
+          xl={{ order: 1, span: 12 }}
           className="landing-page__left"
         >
           <div className="movie-details">
-            <Title className="left-section__title" level={1}>
-              Acclerate your development
-            </Title>
-            <Paragraph className="left-section__paragraph">
-              This boilerplate provides a standardized template to kickstart your React project. It
-              comes with proper linting setup, folder structure and automated file setup.
-            </Paragraph>
-            <Space size={24}>
-              <Button onClick={() => onRedirect('/features')} type="default">
-                View more features
-              </Button>
-              <Button onClick={() => onRedirect('/crud')} type="primary">
-                Simulate CRUD
-              </Button>
-            </Space>
+            <Title className="movie-details__title">{highlightedProgram.title}</Title>
+            <div className="movie-details__cta">
+              <Space size={24}>
+                <Button onClick={onRedirect} type="default">
+                  Explore related
+                </Button>
+                <Button onClick={onViewMoreDetail} type="primary">
+                  View more details
+                </Button>
+              </Space>
+            </div>
           </div>
         </Col>
         <Col
-          xs={{ order: 2, span: 0 }}
-          sm={{ order: 2, span: 0 }}
-          md={{ order: 2, span: 2 }}
-          lg={{ order: 2, span: 4 }}
-          xl={{ order: 2, span: 4 }}
-        />
-        <Col
+          flex="auto"
           xs={{ order: 1, span: 24 }}
           sm={{ order: 1, span: 24 }}
-          md={{ order: 3, span: 11 }}
-          lg={{ order: 3, span: 10 }}
-          xl={{ order: 3, span: 10 }}
+          md={{ order: 3, span: 12 }}
+          lg={{ order: 3, span: 12 }}
+          xl={{ order: 3, span: 12 }}
           className="landing-page__right"
         >
-          {/* <img
-          src={_.get(suggestedMovies[0], 'images.posterArt.url', '')}
-            alt="suggested-movie-thumbnail"
-          /> */}
-          <Image
-            className="thumbnail"
-            preview={false}
-            src={_.get(suggestedMovies[0], 'images.posterArt.url', '')}
-            alt="suggested-movie-thumbnail"
-            fallback="data:image/png;base64,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"
-          />
+          <div className="image-carousel">
+            {!_.get(highlightedProgram, 'images.url') && <EmptyImageSvg />}
+            {_.get(highlightedProgram, 'images.url') && (
+              <div className="posterArt">
+                <img
+                  className="posterArt__thumbnail"
+                  src={_.get(highlightedProgram, 'images.url', '')}
+                  alt="suggested-movie-thumbnail"
+                />
+                <div className="posterArt__overlay">
+                  <div className="controller controller__left" onClick={onPrev} aria-hidden="true">
+                    <LeftOutlined className="arrow-icon" />
+                  </div>
+                  <div className="controller controller__right" onClick={onNext} aria-hidden="true">
+                    <RightOutlined className="arrow-icon" />
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </Col>
       </Row>
     </>
