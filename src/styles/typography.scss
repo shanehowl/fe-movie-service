@@ -12,6 +12,11 @@
   font-size: rem-calc(64);
   line-height: unset;
 }
+@mixin orc__32--semibold {
+  font-family: 'OpenSans SemiBold';
+  font-size: rem-calc(32);
+  line-height: unset;
+}
 @mixin orc__18--semibold {
   font-family: 'OpenSans SemiBold';
   font-size: rem-calc(18);

@@ -2,10 +2,13 @@ import _ from 'lodash'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
-import { Row, Col, Typography, Button, Space } from 'antd'
+import { Row, Col, Typography, Space } from 'antd'
 import { FC, useMemo, useState } from 'react'
 import { RootState } from '../../redux/reducers'
 import { setSelectedProgram } from '../../redux/actions/action_program_list'
+
+//* Component
+import ORCButton from '../../components/button'
 
 //* Constants
 import { ROUTES_NAMING } from '../../constants/routes'
@@ -95,12 +98,20 @@ const Landing: FC = () => {
             <Title className="movie-details__title">{highlightedProgram.title}</Title>
             <div className="movie-details__cta">
               <Space size={24}>
-                <Button onClick={onRedirect} type="default">
+                <ORCButton
+                  onClick={onRedirect}
+                  type="secondary"
+                  className="movie-details__cta--explore"
+                >
                   Explore related
-                </Button>
-                <Button onClick={onViewMoreDetail} type="primary">
-                  View more details
-                </Button>
+                </ORCButton>
+                <ORCButton
+                  type="primary"
+                  className="movie-details__cta--details"
+                  onClick={onViewMoreDetail}
+                >
+                  View details
+                </ORCButton>
               </Space>
             </div>
           </div>
@@ -123,12 +134,20 @@ const Landing: FC = () => {
                   alt="suggested-movie-thumbnail"
                 />
                 <div className="posterArt__overlay">
-                  <div className="controller controller__left" onClick={onPrev} aria-hidden="true">
+                  <ORCButton
+                    type="primary"
+                    className="controller controller__left"
+                    onClick={onPrev}
+                  >
                     <LeftOutlined className="arrow-icon" />
-                  </div>
-                  <div className="controller controller__right" onClick={onNext} aria-hidden="true">
+                  </ORCButton>
+                  <ORCButton
+                    type="primary"
+                    className="controller controller__right"
+                    onClick={onNext}
+                  >
                     <RightOutlined className="arrow-icon" />
-                  </div>
+                  </ORCButton>
                 </div>
               </div>
             )}

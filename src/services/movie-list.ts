@@ -1,9 +1,11 @@
 import _ from 'lodash'
+import Axios, { AxiosResponse } from 'axios'
+
 //* JSON
 import MOVIELIST from '../assets/jsons/movieList.json'
 
 //* Modal
-import { Program } from '../modals/program_list'
+import { FunFactResponse, Program } from '../modals/program_list'
 
 export const getProgramList = () => {
   return {
@@ -21,4 +23,14 @@ export const getProgramList = () => {
       }, [] as Program[])
       .value(),
   }
+}
+
+export const getFunFactByYear = ({ releaseYear }: { releaseYear: number }) => {
+  return Axios.get(`http://numbersapi.com/${releaseYear}/year`, {
+    params: {
+      json: true,
+    },
+  }).then((response: AxiosResponse<FunFactResponse>) => {
+    return response.data
+  })
 }

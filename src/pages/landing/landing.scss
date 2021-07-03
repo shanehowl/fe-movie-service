@@ -48,18 +48,8 @@
           align-items: center;
           justify-content: space-between;
           .controller {
-            cursor: pointer;
             height: rem-calc(64);
             width: rem-calc(64);
-            border-radius: rem-calc(18);
-            background: $orc-bulb---mid;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: box-shadow 0.3s;
-            &:hover {
-              box-shadow: 0px 0px 2px 2px $orc-bulb--mid-light;
-            }
             &__left {
               margin-left: rem-calc(-32);
             }

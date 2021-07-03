@@ -26,3 +26,11 @@ export interface ProgramListState {
   selectedProgram: Program | {}
   total: number
 }
+
+export interface FunFactResponse {
+  date: string
+  text: string
+  number: number
+  found: boolean
+  type: string
+}

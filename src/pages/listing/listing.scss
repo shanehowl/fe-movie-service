@@ -1,9 +1,10 @@
 @import '../../styles/colors.scss';
 @import '../../styles/spacing.scss';
 @import '../../styles/typography.scss';
+@import '../../components/button/button.scss';
 
 .Listing-page {
-  .MovieListing {
+  .ProgramListing {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: rem-calc(40);
@@ -37,11 +38,70 @@
       &__footer {
         width: 100%;
         padding: rem-calc(24);
+        display: flex;
+        flex-direction: column;
         &__title {
           display: flex;
           @include orc__18--semibold;
+          color: $orc-blue--primary;
+        }
+        &__cta-group {
+          display: flex;
+          justify-content: flex-end;
+          padding-top: rem-calc(8);
+          > :first-child {
+            margin-right: rem-calc(8);
+          }
         }
       }
+    }
+  }
+}
+.ProgramDetailInfo {
+  .anticon-info-circle {
+    display: none;
+  }
+  &__info {
+    padding-top: rem-calc(32);
+    padding-right: rem-calc(48);
+    .title,
+    .description {
+      padding-bottom: rem-calc(16);
+    }
+    .title {
+      @include orc__32--semibold;
+      color: $orc-blue--primary;
+    }
+    .description {
+      color: $orc-grey--text;
+      @include orc__16--regular;
+    }
+    .release-year {
+      &__label {
+        color: $orc-grey--text;
+        @include orc__12--regular;
+        padding-right: 8px;
+      }
+      &__badge {
+        padding: rem-calc(6) rem-calc(10);
+        background: $orc-bulb--mid-lighter;
+        color: $orc-bulb---mid;
+        border-radius: 100px;
+      }
+    }
+  }
+  &__thumbnail {
+    display: flex !important;
+    justify-content: center;
+    img {
+      max-height: 50vh;
+      max-width: 100%;
+    }
+  }
+  .ant-modal-confirm-btns {
+    .ant-btn-primary {
+      min-width: rem-calc(120);
+      @include primaryButton();
     }
   }
 }

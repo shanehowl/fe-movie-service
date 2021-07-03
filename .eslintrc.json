@@ -60,5 +60,8 @@
         "moduleDirectory": ["node_modules", "src/"]
       }
     }
+  },
+  "globals": {
+    "JSX": true
   }
 }
