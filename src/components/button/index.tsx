@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Button } from 'antd'
-import './button.less'
+import './button.scss'
 import { ORCButtonProps } from './moda'
 
 /**

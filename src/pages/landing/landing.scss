@@ -1,16 +1,18 @@
-@import '../../styles/colors.less';
+@import '../../styles/colors.scss';
+@import '../../styles/typography.scss';
+@import '../../styles/spacing.scss';
 
 .landing-page {
   &__left {
     .movie-details {
       padding: 26px;
       border-radius: 12px;
-      background: @orc-almost-white;
+      background: $orc-almost-white;
       filter: drop-shadow(9px 9px 16px rgba(133, 137, 172, 0.25));
       &__title {
-        font-size: 64px;
-        color: @orc-blue--primary;
-        margin-bottom: 84px;
+        @include orc__64--semibold;
+        color: $orc-blue--primary;
+        margin-bottom: rem-calc(84);
       }
       &__cta {
         display: flex;
@@ -47,26 +49,26 @@
           justify-content: space-between;
           .controller {
             cursor: pointer;
-            height: 64px;
-            width: 64px;
-            border-radius: 18px;
-            background: @orc-bulb---mid;
+            height: rem-calc(64);
+            width: rem-calc(64);
+            border-radius: rem-calc(18);
+            background: $orc-bulb---mid;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: box-shadow 0.3s;
             &:hover {
-              box-shadow: 0px 0px 2px 2px @orc-bulb--mid-light;
+              box-shadow: 0px 0px 2px 2px $orc-bulb--mid-light;
             }
             &__left {
-              margin-left: -32px;
+              margin-left: rem-calc(-32);
             }
             &__right {
-              margin-right: -32px;
+              margin-right: rem-calc(-32);
             }
             .arrow-icon {
-              font-size: 24px;
-              color: @orc-almost-white;
+              font-size: rem-calc(24);
+              color: $orc-almost-white;
             }
           }
         }

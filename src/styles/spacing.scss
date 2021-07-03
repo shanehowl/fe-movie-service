@@ -1,0 +1,12 @@
+$default-gutter: 16px;
+@function rem-calc($pixels, $gutter: $default-gutter) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($gutter)) {
+    $gutter: $gutter * 1px;
+  }
+
+  @return ($pixels / $gutter) * 1rem;
+}

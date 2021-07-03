@@ -27,6 +27,7 @@
     "redux": "^4.0.5",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
+    "sass": "^1.35.1",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
   },
@@ -38,7 +39,7 @@
     "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
     "lint": "tsc --noEmit && eslint src/**/*.ts{,x} --color",
     "generate": "./node_modules/.bin/plop --plopfile src/plop/generators/index.js",
-    "rewired-antd": "./scripts/update-antd.sh"
+    "rewired-antd": "scripts/update-antd.sh"
   },
   "husky": {
     "hooks": {

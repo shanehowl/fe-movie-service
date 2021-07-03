@@ -9,7 +9,7 @@ import NavigationHeader from '../../components/navigation-header'
 
 import { retrieveProgramList } from '../../redux/actions/action_program_list'
 
-import './home.less'
+import './home.scss'
 import { ROUTES_NAMING } from '../../constants/routes'
 
 const Home: FC = () => {

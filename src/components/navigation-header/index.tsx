@@ -4,7 +4,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom'
 import { Row, Col, Typography, Menu, Button } from 'antd'
 import { NavigationHeaderProp } from './modal'
 
-import './navigation-header.less'
+import './navigation-header.scss'
 import { PROGRAM_TYPE } from '../../constants/programType'
 /**
  *

@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'OpenSans SemiBold';
+  src: url('../assets/fonts/OpenSans-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'OpenSans Regular';
+  src: url('../assets/fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@mixin orc__64--semibold {
+  font-family: 'OpenSans SemiBold';
+  font-size: rem-calc(64);
+  line-height: unset;
+}
+@mixin orc__18--semibold {
+  font-family: 'OpenSans SemiBold';
+  font-size: rem-calc(18);
+  line-height: 23.4px;
+}
+
+@mixin orc__12--regular {
+  font-family: 'OpenSans Regular';
+  font-size: rem-calc(12);
+  line-height: 15.6px;
+}
+
+@mixin orc__16--regular {
+  font-family: 'OpenSans Regular';
+  font-size: rem-calc(16);
+  line-height: 20.8px;
+}

@@ -15,7 +15,7 @@ import { Program } from '../../modals/program_list'
 
 //* Assets
 import { ReactComponent as EmptyImageSvg } from '../../assets/utilities/empty-image.svg'
-import './landing.less'
+import './landing.scss'
 /**
  *
  * Landing

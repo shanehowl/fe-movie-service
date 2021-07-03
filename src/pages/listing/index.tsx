@@ -9,7 +9,7 @@ import { RootState } from '../../redux/reducers'
 import { PROGRAM_TYPE } from '../../constants/programType'
 
 //* Style
-import './listing.less'
+import './listing.scss'
 import { Program } from '../../modals/program_list'
 
 const { Title } = Typography
@@ -23,12 +23,12 @@ const MovieListing = () => {
       {_.map(movies, (movie: Program, index) => {
         return (
           <div className="list-card" key={`${movie.title}-${index}`}>
-            <div className="list-card__thumbnail">
+            <section className="list-card__thumbnail">
               <img src={_.get(movie, 'images.url')} alt={`${movie.title}-thumbnail`} />
-            </div>
-            <div className="list-card__footer">
+            </section>
+            <section className="list-card__footer">
               <Title className="list-card__footer__title">{movie.title}</Title>
-            </div>
+            </section>
           </div>
         )
       })}

@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals'
 import Home from './pages/home'
 
 // Styles
-import './styles/index.less'
+import './styles/index.scss'
 
 // Utilities
 import { ReduxProvider } from './utilities/redux/redux'
