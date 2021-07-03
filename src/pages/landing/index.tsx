@@ -106,7 +106,6 @@ const Landing: FC = () => {
           </div>
         </Col>
         <Col
-          flex="auto"
           xs={{ order: 1, span: 24 }}
           sm={{ order: 1, span: 24 }}
           md={{ order: 3, span: 12 }}

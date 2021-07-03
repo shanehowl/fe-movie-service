@@ -1,0 +1,45 @@
+@import '../../styles/colors.less';
+
+.Listing-page {
+  .MovieListing {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
+    .list-card {
+      display: flex;
+      align-items: center;
+      justify-self: center;
+      flex-direction: column;
+      width: 100%;
+      border-radius: 12px;
+      background: @orc-almost-white;
+      transition: 0.3s filter linear, 1s -webkit-filter linear;
+      &:hover {
+        filter: drop-shadow(9px 9px 16px rgba(133, 137, 172, 0.25));
+      }
+      &__thumbnail {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        background: @orc-white;
+        padding: 24px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        img {
+          max-width: 100%;
+          max-height: 20vw;
+        }
+      }
+      &__footer {
+        width: 100%;
+        padding: 24px;
+        &__title {
+          display: flex;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

@@ -37,7 +37,8 @@
     "eject": "react-scripts eject",
     "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
     "lint": "tsc --noEmit && eslint src/**/*.ts{,x} --color",
-    "generate": "./node_modules/.bin/plop --plopfile src/plop/generators/index.js"
+    "generate": "./node_modules/.bin/plop --plopfile src/plop/generators/index.js",
+    "rewired-antd": "./scripts/update-antd.sh"
   },
   "husky": {
     "hooks": {

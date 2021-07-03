@@ -22,6 +22,7 @@ module.exports = {
               '@btn-default-border': '#9FC1EA',
               '@card-radius': '8px',
               '@table-border-radius-base': '0',
+              '@text-color': '#010038',
             },
             javascriptEnabled: true,
           },
