@@ -19,6 +19,7 @@ const ORCButton: FC<ORCButtonProps> = ({
   return (
     <button
       type="button"
+      test-id="ID__ORCButton"
       className={`ORCButton ORCButton--${type} ORCButton--${shape} ${className}`}
       onClick={onClick}
     >

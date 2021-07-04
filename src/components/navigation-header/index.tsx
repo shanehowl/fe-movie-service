@@ -26,7 +26,7 @@ const NavigationHeader: FC<NavigationHeaderProp> = ({
   )
   return (
     <>
-      <Row align="middle" justify="space-between">
+      <Row align="middle" justify="space-between" test-id="ID__navigationHeader">
         <Col xs={22} sm={22} md={12} lg={12} xl={12}>
           <Link to="/" className="navigation-header__link">
             <Title level={3}>{title}</Title>
@@ -41,9 +41,12 @@ const NavigationHeader: FC<NavigationHeaderProp> = ({
                   onClick={onMenuClick}
                   selectedKeys={[currentMenu]}
                   mode="horizontal"
+                  test-id="ID__navigationHeader-routeMenu"
                 >
                   {_.map(routeMenuItem, (item) => (
-                    <Menu.Item key={item.key}>{item.value}</Menu.Item>
+                    <Menu.Item key={item.key} id={item.key}>
+                      {item.value}
+                    </Menu.Item>
                   ))}
                 </Menu>
               )}
