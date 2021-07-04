@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import { FC, useMemo, useState } from 'react'
-import { Row, Col, Typography } from 'antd'
+import { Row, Col, Typography, BackTop } from 'antd'
 import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/reducers'
@@ -103,6 +103,7 @@ const Listing: FC = () => {
         </Col>
         <Col md={{ order: 3, span: 4 }} lg={{ order: 3, span: 2 }} xl={{ order: 3, span: 4 }} />
       </Row>
+      <BackTop />
     </>
   )
 }

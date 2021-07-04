@@ -1,0 +1,20 @@
+@import '../../styles/spacing.scss';
+@import '../../styles/colors.scss';
+@import '../../styles/typography.scss';
+
+.ORCEmptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .ant-empty {
+    &-description {
+      padding-top: rem-calc(24);
+      @include orc__18--semibold;
+      color: $orc-blue--primary;
+    }
+  }
+  &--page {
+    height: 100vh;
+  }
+}
