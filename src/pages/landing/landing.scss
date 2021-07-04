@@ -48,8 +48,10 @@
           align-items: center;
           justify-content: space-between;
           .controller {
-            height: rem-calc(64);
-            width: rem-calc(64);
+            max-height: rem-calc(64);
+            max-width: rem-calc(64);
+            min-height: rem-calc(64);
+            min-width: rem-calc(64);
             &__left {
               margin-left: rem-calc(-32);
             }

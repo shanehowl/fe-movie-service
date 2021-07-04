@@ -1,0 +1,54 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/typography.scss';
+@import '../../../styles/spacing.scss';
+@import '../../button/button.scss';
+
+.ProgramDetailInfo,
+.FunFactInfo {
+  .anticon-info-circle {
+    display: none;
+  }
+  &__info {
+    padding-top: rem-calc(32);
+    padding-right: rem-calc(48);
+    .title,
+    .description {
+      padding-bottom: rem-calc(16);
+    }
+    .title {
+      @include orc__32--semibold;
+      color: $orc-blue--primary;
+    }
+    .description {
+      color: $orc-grey--text;
+      @include orc__16--regular;
+    }
+    .release-year {
+      &__label {
+        color: $orc-grey--text;
+        @include orc__12--regular;
+        padding-right: 8px;
+      }
+      &__badge {
+        padding: rem-calc(6) rem-calc(10);
+        background: $orc-bulb--mid-lighter;
+        color: $orc-bulb---mid;
+        border-radius: 100px;
+      }
+    }
+  }
+  &__thumbnail {
+    display: flex !important;
+    justify-content: center;
+    img {
+      max-height: 50vh;
+      max-width: 100%;
+    }
+  }
+  .ant-modal-confirm-btns {
+    .ant-btn-primary {
+      min-width: rem-calc(120);
+      @include primaryButton();
+    }
+  }
+}

@@ -19,6 +19,7 @@ import { Program } from '../../modals/program_list'
 //* Assets
 import { ReactComponent as EmptyImageSvg } from '../../assets/utilities/empty-image.svg'
 import './landing.scss'
+import { programDetailInfo } from '../../components/page-specific/info-modal'
 /**
  *
  * Landing
@@ -78,9 +79,9 @@ const Landing: FC = () => {
     }
   }
 
-  const onViewMoreDetail = (): void => {
+  const onViewDetail = (): void => {
     dispatch(setSelectedProgram(highlightedProgram))
-    onRedirect()
+    programDetailInfo({ details: highlightedProgram })
   }
 
   return (
@@ -108,9 +109,9 @@ const Landing: FC = () => {
                 <ORCButton
                   type="primary"
                   className="movie-details__cta--details"
-                  onClick={onViewMoreDetail}
+                  onClick={onViewDetail}
                 >
-                  View details
+                  View Details
                 </ORCButton>
               </Space>
             </div>

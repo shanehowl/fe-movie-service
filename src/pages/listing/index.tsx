@@ -1,18 +1,19 @@
 import _ from 'lodash'
-import { FC, useMemo } from 'react'
-import { Row, Col, Typography, Modal } from 'antd'
+import { FC, useMemo, useState } from 'react'
+import { Row, Col, Typography } from 'antd'
 import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/reducers'
 
 //* Components
 import ORCButton from '../../components/button'
+import { programDetailInfo, funFactInfo } from '../../components/page-specific/info-modal'
 
 //* Constants
 import { PROGRAM_TYPE } from '../../constants/programType'
 
 //* Modal
-import { FunFactResponse, Program } from '../../modals/program_list'
+import { Program } from '../../modals/program_list'
 
 //* Style
 import './listing.scss'
@@ -20,52 +21,12 @@ import { getFunFactByYear } from '../../services/movie-list'
 
 const { Title } = Typography
 
-const funFactInfo = ({ funFact, program }: { funFact: FunFactResponse; program: Program }) => {
-  return Modal.info({
-    width: '50vw',
-    className: 'ProgramDetailInfo',
-    content: (
-      <Row>
-        <Col lg={14} className="ProgramDetailInfo__info">
-          <Title className="title">Did you know?</Title>
-          <div className="description">{funFact.text}</div>
-        </Col>
-        <Col lg={10} className="ProgramDetailInfo__thumbnail">
-          <img src={_.get(program, 'images.url')} alt="funfact-movie-thumbnail" />
-        </Col>
-      </Row>
-    ),
-    okText: 'Close',
-  })
-}
-
-const programDetailInfo = ({ details }: { details: Program }) => {
-  return Modal.info({
-    width: '50vw',
-    className: 'ProgramDetailInfo',
-    content: (
-      <Row>
-        <Col lg={14} className="ProgramDetailInfo__info">
-          <Title className="title">{details.title}</Title>
-          <div className="description">{details.description}</div>
-          <div className="release-year">
-            <span className="release-year__label">Release Year:</span>
-            <span className="release-year__badge">{details.releaseYear}</span>
-          </div>
-        </Col>
-        <Col lg={10} className="ProgramDetailInfo__thumbnail">
-          <img src={_.get(details, 'images.url')} alt="program-details-thumbnail" />
-        </Col>
-      </Row>
-    ),
-    okText: 'Close',
-  })
-}
-
 const ProgramListing = ({ programType }: { programType: string }) => {
   //* Redux
   const { programs } = useSelector((state: RootState) => state.programListReducer)
 
+  //* State
+  const [isFunFactLoading, setIsFunFactLoading] = useState<number[]>([])
   const typedPrograms = _.filter(programs, { programType })
 
   //* Methods
@@ -77,8 +38,12 @@ const ProgramListing = ({ programType }: { programType: string }) => {
     }
   }
 
-  const onFunFact = async ({ program }: { program: Program }) => {
+  const onFunFact = async ({ program, index }: { program: Program; index: number }) => {
+    setIsFunFactLoading((currentLoadingIndex) => [...currentLoadingIndex, index])
     const funFact = await getFunFactByYear({ releaseYear: program.releaseYear })
+    setIsFunFactLoading((currentLoadingIndex) =>
+      _.filter(currentLoadingIndex, (loadingIndex) => loadingIndex !== index)
+    )
     if (funFact && program) {
       funFactInfo({
         funFact,
@@ -99,7 +64,11 @@ const ProgramListing = ({ programType }: { programType: string }) => {
               <section className="list-card__footer">
                 <Title className="list-card__footer__title">{program.title}</Title>
                 <div className="list-card__footer__cta-group">
-                  <ORCButton type="secondary" onClick={() => onFunFact({ program })}>
+                  <ORCButton
+                    type="secondary"
+                    onClick={() => onFunFact({ program, index })}
+                    isLoading={_.includes(isFunFactLoading, index)}
+                  >
                     Did you know?
                   </ORCButton>
                   <ORCButton type="primary" onClick={() => onViewDetails({ program })}>

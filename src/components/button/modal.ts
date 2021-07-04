@@ -4,6 +4,7 @@ export interface ORCButtonProps {
   children?: ReactNode
   type?: 'primary' | 'secondary'
   shape?: 'circle' | 'default'
-  className?: any
+  className?: string
+  isLoading?: Boolean
   onClick: MouseEventHandler<HTMLButtonElement>
 }

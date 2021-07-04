@@ -1,3 +1,4 @@
+import { LoadingOutlined } from '@ant-design/icons'
 import { FC, PropsWithChildren } from 'react'
 import './button.scss'
 import { ORCButtonProps } from './modal'
@@ -11,6 +12,7 @@ const ORCButton: FC<ORCButtonProps> = ({
   type = 'primary',
   className = '',
   shape = 'default',
+  isLoading = false,
   children,
   onClick = () => {},
 }: PropsWithChildren<ORCButtonProps>) => {
@@ -20,7 +22,7 @@ const ORCButton: FC<ORCButtonProps> = ({
       className={`ORCButton ORCButton--${type} ORCButton--${shape} ${className}`}
       onClick={onClick}
     >
-      {children}
+      {isLoading ? <LoadingOutlined /> : children}
     </button>
   )
 }
