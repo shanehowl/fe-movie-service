@@ -1,7 +1,7 @@
 import { LoadingOutlined } from '@ant-design/icons'
 import { FC, PropsWithChildren } from 'react'
 import './button.scss'
-import { ORCButtonProps } from './modal'
+import { ORCButtonProps } from '../../modals/components/button-modal'
 
 /**
  *

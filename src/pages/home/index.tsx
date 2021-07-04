@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import { Layout } from 'antd'
 import { FC, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
@@ -8,13 +9,25 @@ import Listing from '../listing'
 import NavigationHeader from '../../components/navigation-header'
 
 import { retrieveProgramList } from '../../redux/actions/action_program_list'
-
-import './home.scss'
+//* Modal
+import { MenuItem } from '../../modals/components/navigation-header-modal'
 import { ROUTES_NAMING } from '../../constants/routes'
+import { PROGRAM_TYPE } from '../../constants/programType'
+import './home.scss'
 
 const Home: FC = () => {
   //* Constants
   const { Header, Content } = Layout
+  const ROUTE_MENU: MenuItem[] = [
+    {
+      key: PROGRAM_TYPE.movie,
+      value: _.capitalize(PROGRAM_TYPE.movie),
+    },
+    {
+      key: PROGRAM_TYPE.series,
+      value: _.capitalize(PROGRAM_TYPE.series),
+    },
+  ]
 
   //* Redux
   const dispatch = useDispatch()
@@ -26,7 +39,7 @@ const Home: FC = () => {
   return (
     <Layout>
       <Header className="layout__header">
-        <NavigationHeader title="ORC Program" />
+        <NavigationHeader title="ORC Program" routeMenuItem={ROUTE_MENU} />
       </Header>
       <Content className="layout__content">
         <Switch>

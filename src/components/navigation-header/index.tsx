@@ -2,10 +2,9 @@ import _ from 'lodash'
 import { FC, useCallback, useMemo } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import { Row, Col, Typography, Menu, Button } from 'antd'
-import { NavigationHeaderProp } from './modal'
+import { NavigationHeaderProp } from '../../modals/components/navigation-header-modal'
 
 import './navigation-header.scss'
-import { PROGRAM_TYPE } from '../../constants/programType'
 /**
  *
  * NavigationHeader
@@ -15,6 +14,7 @@ const NavigationHeader: FC<NavigationHeaderProp> = ({
   btnType = 'primary',
   btnSize = 'middle',
   title = '',
+  routeMenuItem,
 }: NavigationHeaderProp) => {
   const history = useHistory()
   const { Title } = Typography
@@ -37,15 +37,18 @@ const NavigationHeader: FC<NavigationHeaderProp> = ({
         <Col xs={3} sm={19} md={19} lg={19} xl={19}>
           <Row justify="end">
             <Col>
-              <Menu
-                className="navigation-header__menu"
-                onClick={onMenuClick}
-                selectedKeys={[currentMenu]}
-                mode="horizontal"
-              >
-                <Menu.Item key="movie">{_.capitalize(PROGRAM_TYPE.movie)}</Menu.Item>
-                <Menu.Item key="series">{_.capitalize(PROGRAM_TYPE.series)}</Menu.Item>
-              </Menu>
+              {routeMenuItem && (
+                <Menu
+                  className="navigation-header__menu"
+                  onClick={onMenuClick}
+                  selectedKeys={[currentMenu]}
+                  mode="horizontal"
+                >
+                  {_.map(routeMenuItem, (item) => (
+                    <Menu.Item key={item.key}>{item.value}</Menu.Item>
+                  ))}
+                </Menu>
+              )}
             </Col>
           </Row>
         </Col>
