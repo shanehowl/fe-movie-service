@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import { FC, useCallback, useMemo } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
-import { Row, Col, Typography, Menu, Button } from 'antd'
+import { Row, Col, Typography, Menu } from 'antd'
 import { NavigationHeaderProp } from '../../modals/components/navigation-header-modal'
 
 import './navigation-header.scss'
@@ -11,8 +11,6 @@ import './navigation-header.scss'
  *
  */
 const NavigationHeader: FC<NavigationHeaderProp> = ({
-  btnType = 'primary',
-  btnSize = 'middle',
   title = '',
   routeMenuItem,
 }: NavigationHeaderProp) => {
@@ -29,12 +27,12 @@ const NavigationHeader: FC<NavigationHeaderProp> = ({
   return (
     <>
       <Row align="middle" justify="space-between">
-        <Col xs={20} sm={4} md={4} lg={4} xl={4}>
+        <Col xs={22} sm={22} md={12} lg={12} xl={12}>
           <Link to="/" className="navigation-header__link">
             <Title level={3}>{title}</Title>
           </Link>
         </Col>
-        <Col xs={3} sm={19} md={19} lg={19} xl={19}>
+        <Col xs={2} sm={2} md={12} lg={12} xl={12}>
           <Row justify="end">
             <Col>
               {routeMenuItem && (
@@ -51,11 +49,6 @@ const NavigationHeader: FC<NavigationHeaderProp> = ({
               )}
             </Col>
           </Row>
-        </Col>
-        <Col xs={1} sm={1} md={1} lg={1} xl={1}>
-          <Button type={btnType} size={btnSize}>
-            Login
-          </Button>
         </Col>
       </Row>
     </>

@@ -11,11 +11,16 @@ const { Title } = Typography
 
 export const programDetailInfo = ({ details }: { details: Program }) => {
   return Modal.info({
-    width: '50vw',
+    width: '100%',
     className: 'ProgramDetailInfo',
     content: (
       <Row>
-        <Col lg={14} className="ProgramDetailInfo__info">
+        <Col
+          xs={{ order: 2, span: 24 }}
+          sm={{ order: 2, span: 24 }}
+          lg={{ order: 1, span: 14 }}
+          className="ProgramDetailInfo__info"
+        >
           <Title className="title">{details.title}</Title>
           <div className="description">{details.description}</div>
           <div className="release-year">
@@ -23,7 +28,12 @@ export const programDetailInfo = ({ details }: { details: Program }) => {
             <span className="release-year__badge">{details.releaseYear}</span>
           </div>
         </Col>
-        <Col lg={10} className="ProgramDetailInfo__thumbnail">
+        <Col
+          xs={{ order: 1, span: 24 }}
+          sm={{ order: 1, span: 24 }}
+          lg={{ order: 2, span: 10 }}
+          className="ProgramDetailInfo__thumbnail"
+        >
           <img src={_.get(details, 'images.url')} alt="program-details-thumbnail" />
         </Col>
       </Row>
@@ -40,15 +50,25 @@ export const funFactInfo = ({
   program: Program
 }) => {
   return Modal.info({
-    width: '50vw',
+    width: '100%',
     className: 'FunFactInfo',
     content: (
       <Row>
-        <Col lg={14} className="FunFactInfo__info">
+        <Col
+          xs={{ order: 2, span: 24 }}
+          sm={{ order: 2, span: 24 }}
+          lg={{ order: 1, span: 14 }}
+          className="FunFactInfo__info"
+        >
           <Title className="title">Did you know?</Title>
           <div className="description">{funFact.text}</div>
         </Col>
-        <Col lg={10} className="FunFactInfo__thumbnail">
+        <Col
+          xs={{ order: 1, span: 24 }}
+          sm={{ order: 1, span: 24 }}
+          lg={{ order: 2, span: 10 }}
+          className="FunFactInfo__thumbnail"
+        >
           <img src={_.get(program, 'images.url')} alt="funfact-movie-thumbnail" />
         </Col>
       </Row>

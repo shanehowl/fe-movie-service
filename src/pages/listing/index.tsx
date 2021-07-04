@@ -96,12 +96,30 @@ const Listing: FC = () => {
   return (
     <>
       <Row align="middle" justify="center" gutter={[16, 16]} className="Listing-page">
-        <Col md={{ order: 1, span: 4 }} lg={{ order: 1, span: 2 }} xl={{ order: 1, span: 4 }} />
-        <Col md={{ order: 2, span: 16 }} lg={{ order: 2, span: 20 }} xl={{ order: 2, span: 16 }}>
+        <Col
+          xs={{ order: 1, span: 0 }}
+          sm={{ order: 1, span: 0 }}
+          md={{ order: 1, span: 1 }}
+          lg={{ order: 1, span: 2 }}
+          xl={{ order: 1, span: 4 }}
+        />
+        <Col
+          xs={{ order: 2, span: 24 }}
+          sm={{ order: 2, span: 24 }}
+          md={{ order: 2, span: 22 }}
+          lg={{ order: 2, span: 20 }}
+          xl={{ order: 2, span: 16 }}
+        >
           {listType === PROGRAM_TYPE.movie && <ProgramListing programType={PROGRAM_TYPE.movie} />}
           {listType === PROGRAM_TYPE.series && <ProgramListing programType={PROGRAM_TYPE.series} />}
         </Col>
-        <Col md={{ order: 3, span: 4 }} lg={{ order: 3, span: 2 }} xl={{ order: 3, span: 4 }} />
+        <Col
+          xs={{ order: 1, span: 0 }}
+          sm={{ order: 1, span: 0 }}
+          md={{ order: 3, span: 1 }}
+          lg={{ order: 3, span: 2 }}
+          xl={{ order: 3, span: 4 }}
+        />
       </Row>
       <BackTop />
     </>

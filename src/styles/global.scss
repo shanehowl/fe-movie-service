@@ -1,0 +1,15 @@
+@import './colors.scss';
+
+body {
+  background: $orc-almost-white;
+}
+
+//* Ant D
+.ant-menu-item-only-child {
+  .ant-menu-item-only-child {
+    margin: 0;
+    &:hover {
+      background: $orc-box-shadow;
+    }
+  }
+}

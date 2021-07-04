@@ -1,3 +1,5 @@
+@import './responsive.scss';
+
 @font-face {
   font-family: 'OpenSans SemiBold';
   src: url('../assets/fonts/OpenSans-SemiBold.ttf') format('truetype');
@@ -11,6 +13,12 @@
   font-family: 'OpenSans SemiBold';
   font-size: rem-calc(64);
   line-height: unset;
+  @include xs {
+    font-size: rem-calc(32);
+  }
+  @include md {
+    font-size: rem-calc(32);
+  }
 }
 @mixin orc__32--semibold {
   font-family: 'OpenSans SemiBold';

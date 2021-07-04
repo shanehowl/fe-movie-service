@@ -1,4 +1,5 @@
 @import '../../styles/spacing.scss';
+@import '../../styles/responsive.scss';
 
 .layout {
   &__header {
@@ -9,5 +10,13 @@
   &__content {
     padding: rem-calc(64) rem-calc(64) 0 rem-calc(64);
     margin-top: rem-calc(64);
+    height: 100vh;
+    @include xs {
+      height: 100%;
+      padding: rem-calc(16) rem-calc(16) 0 rem-calc(16);
+    }
+    @include md {
+      padding: rem-calc(32) rem-calc(32) 0 rem-calc(32);
+    }
   }
 }

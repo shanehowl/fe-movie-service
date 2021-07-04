@@ -1,6 +1,7 @@
 @import '../../styles/colors.scss';
 @import '../../styles/spacing.scss';
 @import '../../styles/typography.scss';
+@import '../../styles/responsive.scss';
 @import '../../components/button/button.scss';
 
 .Listing-page {
@@ -9,6 +10,9 @@
     grid-template-columns: 1fr 1fr;
     grid-column-gap: rem-calc(40);
     grid-row-gap: rem-calc(40);
+    @include xs {
+      grid-template-columns: 1fr;
+    }
     .list-card {
       display: flex;
       align-items: center;

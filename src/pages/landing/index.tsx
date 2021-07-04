@@ -2,7 +2,7 @@ import _ from 'lodash'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
-import { Row, Col, Typography, Space } from 'antd'
+import { Row, Col, Typography } from 'antd'
 import { FC, useMemo, useState } from 'react'
 import { RootState } from '../../redux/reducers'
 import { setSelectedProgram } from '../../redux/actions/action_program_list'
@@ -90,7 +90,7 @@ const Landing: FC = () => {
         <Col
           xs={{ order: 3, span: 24 }}
           sm={{ order: 3, span: 24 }}
-          md={{ order: 1, span: 12 }}
+          md={{ order: 2, span: 24 }}
           lg={{ order: 1, span: 12 }}
           xl={{ order: 1, span: 12 }}
           className="landing-page__left"
@@ -98,31 +98,29 @@ const Landing: FC = () => {
           <div className="movie-details">
             <Title className="movie-details__title">{highlightedProgram.title}</Title>
             <div className="movie-details__cta">
-              <Space size={24}>
-                <ORCButton
-                  onClick={onRedirect}
-                  type="secondary"
-                  className="movie-details__cta--explore"
-                >
-                  Explore related
-                </ORCButton>
-                <ORCButton
-                  type="primary"
-                  className="movie-details__cta--details"
-                  onClick={onViewDetail}
-                >
-                  View Details
-                </ORCButton>
-              </Space>
+              <ORCButton
+                onClick={onRedirect}
+                type="secondary"
+                className="movie-details__cta--explore"
+              >
+                Explore related
+              </ORCButton>
+              <ORCButton
+                type="primary"
+                className="movie-details__cta--details"
+                onClick={onViewDetail}
+              >
+                View Details
+              </ORCButton>
             </div>
           </div>
         </Col>
         <Col
           xs={{ order: 1, span: 24 }}
           sm={{ order: 1, span: 24 }}
-          md={{ order: 3, span: 12 }}
-          lg={{ order: 3, span: 12 }}
-          xl={{ order: 3, span: 12 }}
+          md={{ order: 1, span: 24 }}
+          lg={{ order: 1, span: 12 }}
+          xl={{ order: 2, span: 12 }}
           className="landing-page__right"
         >
           <div className="image-carousel">

@@ -1,6 +1,7 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/typography.scss';
 @import '../../../styles/spacing.scss';
+@import '../../../styles/responsive.scss';
 @import '../../button/button.scss';
 
 .ProgramDetailInfo,
@@ -18,16 +19,25 @@
     .title {
       @include orc__32--semibold;
       color: $orc-blue--primary;
+      @include xs {
+        font-size: rem-calc(16);
+      }
     }
     .description {
       color: $orc-grey--text;
       @include orc__16--regular;
+      @include xs {
+        font-size: rem-calc(12);
+      }
     }
     .release-year {
       &__label {
         color: $orc-grey--text;
         @include orc__12--regular;
         padding-right: 8px;
+        @include xs {
+          font-size: rem-calc(8);
+        }
       }
       &__badge {
         padding: rem-calc(6) rem-calc(10);
