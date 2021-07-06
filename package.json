@@ -34,7 +34,7 @@
   },
   "scripts": {
     "start": "echo '#NODE_ENV='${NODE_ENV:=development}'' && env-cmd -f ./environments/${NODE_ENV}/.env.${NODE_ENV}.local craco start",
-    "build": "echo '#NODE_ENV='${NODE_ENV:=production}'' && env-cmd -f ./environments/${NODE_ENV}/.env.${NODE_ENV} craco build",
+    "build": "echo '#NODE_ENV='${NODE_ENV:=production}'' && env-cmd -f ./environments/${NODE_ENV}/.env.${NODE_ENV}.local craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
     "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
