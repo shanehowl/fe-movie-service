@@ -1,17 +1,11 @@
-FROM node:10
+FROM node:12.13 as build
 
-# Setting working directory. All the path will be relative to WORKDIR
-WORKDIR /usr/src/app
+RUN mkdir /app
+WORKDIR /app
 
-# Installing dependencies
-COPY package*.json ./
+COPY package.json .
 RUN npm install
 
-# Copying source files
 COPY . .
 
-# Building app
-RUN npm run build
-
-# Running the app
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]
