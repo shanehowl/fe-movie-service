@@ -75,6 +75,7 @@ const Landing: FC = () => {
         pathname: _.get(ROUTES_NAMING, highlightedProgram.programType),
       })
     } catch (error) {
+      // eslint-disable-next-line
       console.error('Failed to redirect. Missing program type')
     }
   }

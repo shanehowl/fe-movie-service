@@ -41,6 +41,7 @@ export const getFunFactByYear = ({ releaseYear }: { releaseYear: number }) => {
         content:
           "Opps, looks like there's an network error. Please reach out to our support team to assit you",
       })
+      // eslint-disable-next-line
       console.error('Error log for dev', error)
     })
 }
