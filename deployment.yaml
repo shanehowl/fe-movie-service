@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: react-docker-k8s-lb
+  name: orc-react-fe-k8s-lb
   labels:
-    app: react-docker-k8s-lb
+    app: orc-react-fe-k8s-lb
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: react-docker-k8s-lb
+      app: orc-react-fe-k8s-lb
   template:
     metadata:
       labels:
-        app: react-docker-k8s-lb
+        app: orc-react-fe-k8s-lb
     spec:
       containers:
-        - name: react-docker-k8s-lb
-          image: shanehowl/react-docker-k8s
+        - name: orc-react-fe-k8s-lb
+          image: shanehowl/orcmovielisting:latestv1
           ports:
             - containerPort: 80
           resources:
@@ -42,12 +42,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: react-docker-k8s-lb
+  name: orc-react-fe-k8s-lb
   labels:
-    app: react-docker-k8s-lb
+    app: orc-react-fe-k8s-lb
 spec:
   type: LoadBalancer
   ports:
     - port: 80
   selector:
-    app: react-docker-k8s-lb
+    app: orc-react-fe-k8s-lb
