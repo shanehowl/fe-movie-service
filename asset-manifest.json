@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/fe-movie-service/static/css/main.922033df.chunk.css",
+    "main.js": "/fe-movie-service/static/js/main.22c029af.chunk.js",
+    "main.js.map": "/fe-movie-service/static/js/main.22c029af.chunk.js.map",
+    "runtime-main.js": "/fe-movie-service/static/js/runtime-main.3e2a7fdd.js",
+    "runtime-main.js.map": "/fe-movie-service/static/js/runtime-main.3e2a7fdd.js.map",
+    "static/js/2.4160deba.chunk.js": "/fe-movie-service/static/js/2.4160deba.chunk.js",
+    "static/js/2.4160deba.chunk.js.map": "/fe-movie-service/static/js/2.4160deba.chunk.js.map",
+    "static/js/3.ea25dd79.chunk.js": "/fe-movie-service/static/js/3.ea25dd79.chunk.js",
+    "static/js/3.ea25dd79.chunk.js.map": "/fe-movie-service/static/js/3.ea25dd79.chunk.js.map",
+    "index.html": "/fe-movie-service/index.html",
+    "static/css/main.922033df.chunk.css.map": "/fe-movie-service/static/css/main.922033df.chunk.css.map",
+    "static/js/2.4160deba.chunk.js.LICENSE.txt": "/fe-movie-service/static/js/2.4160deba.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/fe-movie-service/static/media/OpenSans-SemiBold.a16d8201.ttf",
+    "static/media/empty-image.836c6cee.svg": "/fe-movie-service/static/media/empty-image.836c6cee.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3e2a7fdd.js",
+    "static/js/2.4160deba.chunk.js",
+    "static/css/main.922033df.chunk.css",
+    "static/js/main.22c029af.chunk.js"
+  ]
+}
