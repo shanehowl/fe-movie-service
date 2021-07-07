@@ -100,5 +100,6 @@
     "prettier": "^2.2.1",
     "ts-jest": "^26.4.4"
   },
-  "proxy": "http://localhost:80"
+  "proxy": "http://localhost:80",
+  "homepage": "https://shanehowl.github.io/fe-movie-service/"
 }
