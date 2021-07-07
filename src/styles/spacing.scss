@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $default-gutter: 16px;
 @function rem-calc($pixels, $gutter: $default-gutter) {
   @if (unitless($pixels)) {
@@ -8,5 +10,5 @@ $default-gutter: 16px;
     $gutter: $gutter * 1px;
   }
 
-  @return ($pixels / $gutter) * 1rem;
+  @return math.div($pixels, $gutter) * 1rem;
 }
